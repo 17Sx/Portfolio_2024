@@ -1,0 +1,184 @@
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("../font/NeueMontreal-Bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("../font/NeueMontreal-BoldItalic.otf") format("opentype");
+  font-weight: bold;
+  font-style: italic;
+}
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("../font/NeueMontreal-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("../font/NeueMontreal-LightItalic.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+body {
+  font-family: "NeueMontreal";
+  background-image: url("../img/bg.png");
+  margin: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.custom-cursor-before {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 1000px 50px #e2c258;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  z-index: -100;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.main {
+  border: 1px solid #2d2d2d;
+  width: 200vh;
+  height: 90vh;
+  border-radius: 5px;
+  position: relative;
+}
+.main__header {
+  color: #bbbbbb;
+  padding: 1rem;
+}
+.main__header-main {
+  display: flex;
+}
+.main__header-main-logo {
+  margin-right: 20px;
+}
+.main__header-main-logo img {
+  width: 100px;
+  height: 100px;
+}
+.main__header-main-title {
+  font-size: 4rem;
+  font-weight: 500;
+}
+.main__header-main-subtitle {
+  font-size: 1rem;
+  font-weight: 300;
+}
+.main__link {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  padding: 1rem;
+}
+.main__link-item {
+  position: relative;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #bbbbbb;
+  text-decoration: none;
+  transition: 0.5s;
+  margin: 0.5rem;
+}
+.main__link-item:hover {
+  color: #ffffff;
+}
+.main__link-item-c {
+  color: #e2c258;
+}
+.main__link-item::before, .main__link-item::after {
+  content: "";
+  position: absolute;
+  left: 100px;
+  width: 100%;
+  opacity: 0;
+  transform: translatey(20px);
+  transition: 0.3s ease-in-out;
+  font-size: 1rem;
+}
+.main__link-item::after {
+  content: attr(data-text);
+  color: #bbbbbb;
+}
+.main__link-item:hover::before, .main__link-item:hover::after {
+  opacity: 1;
+  transform: translateY(0px);
+}
+.main__footer {
+  width: 16vw;
+  height: 15vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  text-align: end;
+  color: #bbbbbb;
+  font-size: 1.5rem;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 1rem;
+}
+.main__footer-link {
+  cursor: pointer;
+  transition: 0.5s;
+  color: #ffffff;
+}
+.main__footer-link:hover {
+  color: #e2c258;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    margin: 0;
+    border: none;
+    height: 100vh;
+  }
+  .main {
+    flex-direction: column;
+    height: 100vh;
+    border: none;
+  }
+  .main h2 {
+    font-size: 2rem;
+  }
+  .main__footer {
+    width: 50vw;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

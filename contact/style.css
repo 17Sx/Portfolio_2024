@@ -1,0 +1,248 @@
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("../font/NeueMontreal-Bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("../font/NeueMontreal-BoldItalic.otf") format("opentype");
+  font-weight: bold;
+  font-style: italic;
+}
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("../font/NeueMontreal-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("../font/NeueMontreal-LightItalic.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+body {
+  font-family: "NeueMontreal";
+  background-image: url("../img/bg.png");
+  margin: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.custom-cursor-before {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 1000px 50px #bc1cbf;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  z-index: -100;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.main {
+  border: 1px solid #2d2d2d;
+  width: 200vh;
+  height: 90vh;
+  border-radius: 5px;
+  display: flex;
+}
+.main__leftside {
+  width: 50%;
+}
+.main__leftside-header {
+  color: #bbbbbb;
+  padding: 1rem;
+}
+.main__leftside-header-main {
+  display: flex;
+}
+.main__leftside-header-main-logo {
+  margin-right: 20px;
+}
+.main__leftside-header-main-logo img {
+  width: 100px;
+  height: 100px;
+}
+.main__leftside-header-main-title {
+  font-size: 4rem;
+  font-weight: 500;
+}
+.main__leftside-header-main-subtitle {
+  font-size: 1rem;
+  font-weight: 300;
+}
+.main__leftside-link {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  padding: 1rem;
+}
+.main__leftside-link-item {
+  position: relative;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #bbbbbb;
+  text-decoration: none;
+  transition: 0.5s;
+  margin: 0.5rem;
+}
+.main__leftside-link-item:hover {
+  color: #ffffff;
+}
+.main__leftside-link-item-c {
+  color: #bc1cbf;
+}
+.main__leftside-link-item::before, .main__leftside-link-item::after {
+  content: "";
+  position: absolute;
+  left: 100px;
+  width: 100%;
+  opacity: 0;
+  transform: translatey(20px);
+  transition: 0.3s ease-in-out;
+  font-size: 1rem;
+}
+.main__leftside-link-item::after {
+  content: attr(data-text);
+  color: #bbbbbb;
+}
+.main__leftside-link-item:hover::before, .main__leftside-link-item:hover::after {
+  opacity: 1;
+  transform: translateY(0px);
+}
+.main__rightside {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #2d2d2d;
+}
+.main__rightside h1 {
+  color: #bbbbbb;
+  font-size: 3rem;
+  font-weight: 500;
+  padding: 1rem;
+  border: 1px solid #2d2d2d;
+  width: 100%;
+  text-align: center;
+}
+.main__rightside-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  width: 100%;
+}
+.main__rightside-form label {
+  color: #bbbbbb;
+}
+.main__rightside-form input {
+  width: 100%;
+  padding: 1rem;
+  margin: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #bbbbbb;
+  font-size: 1rem;
+  transition: 0.5s;
+  border: 1px solid #2d2d2d;
+}
+.main__rightside-form input:focus {
+  background-color: #ffffff;
+  color: #151515;
+}
+.main__rightside-form textarea {
+  width: 100%;
+  padding: 1rem;
+  margin: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #bbbbbb;
+  font-size: 1rem;
+  transition: 0.5s;
+  border: 1px solid #2d2d2d;
+}
+.main__rightside-form textarea:focus {
+  background-color: #ffffff;
+  color: #151515;
+}
+.main__rightside-form button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #bbbbbb;
+  color: #2d2d2d;
+  border-radius: 5px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: 0.1s;
+  margin: 1rem;
+  width: 100%;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.main__rightside-form button:hover {
+  background-color: #ffffff;
+  color: #151515;
+}
+.main__rightside-form button:hover {
+  background-color: #2d2d2d;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    margin: 0;
+    border: none;
+    height: 100vh;
+  }
+  .main {
+    flex-direction: column;
+    height: 100vh;
+    border: none;
+  }
+  .main h2 {
+    font-size: 2rem;
+  }
+  .main__leftside {
+    width: 100%;
+  }
+  .main__rightside {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

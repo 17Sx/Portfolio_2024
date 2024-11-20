@@ -1,0 +1,300 @@
+@use "../var" as v;
+@use "../mixin" as m;
+@use "../reset";
+
+body {
+    font-family: v.$font ;
+    background-image: url("../img/bg.png");
+    margin: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
+    overflow: hidden; 
+}
+
+.custom-cursor-before {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 1000px 50px #1cbf45;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: -100;
+    opacity: 1;
+    pointer-events: none;
+
+}
+
+.main{
+    border: 1px solid v.$gray;
+    width: 200vh;
+    height: 90vh;
+    border-radius: 5px;
+    display: flex;
+
+    &__leftside{
+        width: 50%;
+
+        &-header{
+            color: v.$light-gray;
+            padding: 1rem;
+
+            &-main{
+
+                display: flex;
+
+                &-logo{
+
+                    margin-right: 20px;
+
+                    & img{
+                        width: 100px;
+                        height: 100px;
+                    }
+                }
+
+                    &-title{
+                        font-size: 4rem;
+                        font-weight: 500;
+                    }
+        
+                    &-subtitle{
+                        font-size: 1rem;
+                        font-weight: 300;
+                    }
+                
+
+            }
+
+        }
+
+        &-link {
+            display: flex;
+            flex-direction: column;
+            text-align: start;
+            padding: 1rem;
+        
+            &-item {
+                position: relative;
+                font-size: 1.5rem;
+                cursor: pointer;
+                color: v.$light-gray;
+                text-decoration: none;
+                transition: 0.5s;
+                margin: 0.5rem;
+        
+            &:hover {
+            color: v.$white;
+            }
+        
+            &-c {
+            color: v.$green;
+            }
+        
+            &::before, &::after {
+            content: '';
+            position: absolute;
+            left: 100px;
+            width: 100%;
+            opacity: 0;
+            transform: translatey(20px);
+            transition: 0.3s ease-in-out;
+            font-size: 1rem;
+            }
+    
+        
+            &::after {
+            content: attr(data-text);
+            color: v.$light-gray;
+            }
+        
+            &:hover::before, &:hover::after {
+            opacity: 1;
+            transform: translateY(0px);
+            }
+        }
+        }
+    }
+
+
+    &__rightside{
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        &::-webkit-scrollbar {
+            width: 10px;  
+        }
+    
+        &::-webkit-scrollbar-thumb {
+            background-color: v.$light-gray;  
+            border-radius: 10px;  
+            border: 3px solid transparent;  
+            background-clip: content-box;  
+        }
+    
+        &::-webkit-scrollbar-track {
+            background-color: transparent; 
+        }
+
+        & h1{
+            color: v.$light-gray;
+            font-size: 3rem;
+            font-weight: 500;
+            padding: 1rem;
+            text-align: end;
+        }
+
+        &-container{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            color: v.$light-gray;
+            width: 90%;
+            overflow: hidden;
+
+            &-text{
+                font-weight: 300;
+                padding: 1rem;
+                text-align: end;
+                width: 50%;
+            }
+
+            & h2{
+                font-size: 2rem;
+                font-weight: 500;
+                padding: 1rem;
+            }
+
+            &-skills{
+                display: flex;
+                flex-direction: flex-end;
+                height: 90%;
+
+
+                & h3{
+                    font-size: 1.5rem;
+                    font-weight: 500;
+                }
+
+                &-db{
+                    border: 1px solid v.$gray;
+                    text-align: end;
+                    padding: 1rem;
+
+                    &-logo {
+                        margin-top: 1rem;
+                        display: flex;
+                        justify-content: flex-end;
+
+                        & i{
+                            margin-left: 1vw;
+                        }
+                    }
+                }
+                &-tp{
+                    border: 1px solid v.$gray;
+                    text-align: end;
+                    padding: 1rem;
+                    
+                    &-logo {
+                        margin-top: 1rem;
+                        display: flex;
+                        justify-content: flex-end;
+
+                        & i{
+                            margin-left: 1vw;
+                        }
+                    }
+                }
+                &-fl{
+                    border: 1px solid v.$gray;
+                    text-align: end;
+                    padding: 1rem;
+
+                    &-logo {
+                        margin-top: 1rem;
+                        display: flex;
+                        justify-content: flex-end;
+
+                        & i{
+                            margin-left: 1vw;
+                        }
+                    }
+                }
+                &-pl{
+                    border: 1px solid v.$gray;
+                    text-align: end;
+                    padding: 1rem;
+
+                    &-logo {
+                        margin-top: 1rem;
+                        display: flex;
+                        justify-content: flex-end;
+
+                        & i{
+                            margin-left: 1vw;
+                        }
+                    }
+                }
+            }
+        }
+
+        & a{
+            @include m.button(v.$light-gray, v.$gray, v.$small-radius, v.$padding);
+            margin: 1rem 1rem 1rem 0;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.5s;
+            &:hover{
+                background-color: v.$gray;
+                color: v.$white;
+            }
+
+        }
+    }
+
+}
+
+.ff{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+@media screen and (max-width: 768px){
+
+    body{
+        margin: 0;
+        border: none;
+        height: 100vh;
+        overflow: auto;
+    }
+    .main{
+        flex-direction: column;
+        height: 100vh;
+        border: none;
+
+        & h2{
+            font-size: 2rem;
+        }
+
+        &__rightside{
+            width: 100%;
+
+            &-container{
+                &-skills{
+                    flex-direction: column;
+                    justify-content: center;
+                }
+            }
+        }
+
+
+
+    }
+}

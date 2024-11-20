@@ -1,0 +1,52 @@
+//color
+
+$black: #151515;
+$white: #ffffff;
+$gray: #2d2d2d;
+$light-gray: #bbbbbb;
+$yellow: #e2c258;
+$blue: #1e90ff;
+$green: #1cbf45;
+
+
+//font 
+
+@font-face {
+    font-family: 'NeueMontreal';
+    src: url('../font/NeueMontreal-Bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NeueMontreal';
+    src: url('../font/NeueMontreal-BoldItalic.otf') format('opentype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'NeueMontreal';
+    src: url('../font/NeueMontreal-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NeueMontreal';
+    src: url('../font/NeueMontreal-LightItalic.otf') format('opentype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+$font: 'NeueMontreal';
+$font-weight-bold: bold;
+$font-weight-light: 300;
+
+//radius
+
+$small-radius: 5px;
+
+//padding
+
+$padding: 1rem;

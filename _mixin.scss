@@ -1,0 +1,31 @@
+@use "var" as v;
+@use "reset";
+
+@mixin card($bg-color, $text-color, $border-radius, $padding) {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    height: auto;
+    width: 40vw;
+    background-color: $bg-color;
+    color: $text-color;
+    border-radius: $border-radius;
+    padding: $padding;
+}
+
+@mixin button($bg-color, $text-color, $border-radius, $padding) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $bg-color;
+    color: $text-color;
+    border-radius: $border-radius;
+    padding: $padding;
+    cursor: pointer;
+    transition: 0.1s;
+
+    &:hover {
+        background-color: v.$white;
+        color: v.$black;
+    }
+}
