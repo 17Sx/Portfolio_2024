@@ -244,5 +244,114 @@ body {
     width: 100%;
   }
 }
+.lightmode {
+  background-image: none;
+  background-color: #ffffff !important;
+  color: #151515 !important;
+}
+.lightmode .lightmodebtn {
+  color: #151515;
+  background-color: transparent;
+}
+.lightmode .custom-cursor-before {
+  opacity: 1;
+  box-shadow: 0 0 1000px 50px #bc1cbf;
+}
+.lightmode .main {
+  color: #151515;
+}
+.lightmode .main__leftside-header {
+  color: #151515;
+}
+.lightmode .main__leftside-header-main {
+  color: #151515;
+}
+.lightmode .main__leftside-header-main-logo img {
+  filter: invert(1);
+}
+.lightmode .main__leftside-link-item {
+  color: #151515;
+}
+.lightmode .main__leftside-link-item:hover {
+  color: #bc1cbf;
+}
+.lightmode .main__leftside-footer {
+  color: #151515;
+}
+.lightmode .main__leftside-footer-link {
+  color: #151515;
+}
+.lightmode .main__leftside-footer-link:hover {
+  color: #e2c258;
+}
+.lightmode .main__rightside h1 {
+  color: #151515;
+}
+.lightmode .main__rightside-form label {
+  color: #151515;
+}
+.lightmode .main__rightside-form input {
+  color: #151515;
+}
+.lightmode .main__rightside-form textarea {
+  color: #151515;
+}
+.lightmode .main__rightside-form button {
+  color: #151515;
+}
+
+.lightmodebtn {
+  background-color: transparent;
+  color: #bbbbbb;
+  border: 1px solid #2d2d2d;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  padding: 0.7rem 1rem;
+  margin-left: 1rem;
+}
+.lightmodebtn:hover {
+  color: #151515;
+  animation: hoverAnimation 0.3s ease-in-out;
+}
+
+@keyframes hoverAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes fillBackground {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
+.lightmodebtn {
+  background-size: 200% 100%;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 50%, #ffffff 50%);
+  transition: background-position 0.3s;
+}
+.lightmodebtn:hover {
+  background-position: 100% 0%;
+}
+
+.lightmodebtn.lightmode {
+  background-color: #e2c258;
+  color: #151515;
+}
 
 /*# sourceMappingURL=style.css.map */

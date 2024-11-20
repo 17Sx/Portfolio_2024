@@ -239,3 +239,153 @@ body {
         }
     }
 }
+
+.lightmode {
+    background-image: none;
+    background-color: v.$white !important;  
+    color: v.$black !important;  
+
+    .lightmodebtn {
+        color: v.$black;
+        background-color: transparent;
+    }
+
+    .custom-cursor-before {
+        opacity: 1;
+        box-shadow: 0 0 1000px 50px v.$blue;
+    }
+
+    .main{
+        color: v.$black; 
+    
+&__leftside{
+    &-header{
+            color: v.$black;
+
+            &-main{
+                color: v.$black;
+
+                &-logo{
+                    & img{
+                        filter: invert(1);
+                    }
+                }
+            }
+        }
+
+        &-link{
+            &-item{
+                color: v.$black;
+                &:hover{
+                    color: v.$blue;
+                }
+            }
+        }
+
+        &-footer{
+            color: v.$black;
+            &-link{
+                color: v.$black;
+                &:hover{
+                    color: v.$yellow;
+                }
+            }
+        }
+    }
+    &__rightside{
+        & h1{
+            color: v.$black;
+        }
+    
+        &-container{
+            color: v.$black;
+            &-text{
+                color: v.$black;
+            }
+    
+            & h2{
+                color: v.$black;
+            }
+    
+            &-card{
+                background-color: v.$white;
+                border: 1px solid v.$gray;
+                & h2{
+                    color: v.$black;
+                }
+                & p{
+                    color: v.$black;
+                }
+                &-button{
+                    background-color: v.$gray;
+                    color: v.$white;
+                    &:hover{
+                        background-color: v.$black;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+}
+
+
+.lightmodebtn {
+    background-color: transparent;
+    color: v.$light-gray;  
+    border: 1px solid v.$gray;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding: 0.7rem 1rem;
+    margin-left: 1rem;
+
+    &:hover {
+        color: v.$black;
+        animation: hoverAnimation 0.3s ease-in-out;
+    }
+}
+
+@keyframes hoverAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@keyframes fillBackground {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 0%;
+    }
+}
+
+.lightmodebtn {
+    background-size: 200% 100%;
+    background-image: linear-gradient(to right, v.$transparent 50%, v.$white 50%);
+    transition: background-position 0.3s;
+
+    &:hover {
+        background-position: 100% 0%;
+    }
+}
+
+
+.lightmodebtn.lightmode {
+    background-color: v.$yellow;
+    color: v.$black;
+}

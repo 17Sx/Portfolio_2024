@@ -11,3 +11,27 @@ if (cursor && cursorBefore) {
         });
     });
 }
+
+const lightModeBtn = document.querySelector('.lightmodebtn');
+
+const currentMode = localStorage.getItem('lightMode');
+if (currentMode === 'enabled') {
+    document.body.classList.add('lightmode');
+    lightModeBtn.textContent = 'DarkMode';
+} else {
+    document.body.classList.remove('lightmode');
+    lightModeBtn.textContent = 'LightMode';
+}
+
+lightModeBtn.addEventListener('click', () => {
+    const isLightMode = document.body.classList.toggle('lightmode');
+
+
+    if (isLightMode) {
+        localStorage.setItem('lightMode', 'enabled');
+        lightModeBtn.textContent = 'DarkMode';
+    } else {
+        localStorage.setItem('lightMode', 'disabled');
+        lightModeBtn.textContent = 'LightMode';
+    }
+});
