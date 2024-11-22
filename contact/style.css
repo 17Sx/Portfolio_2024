@@ -54,6 +54,7 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
+  background-size: cover;
 }
 
 .custom-cursor-before {
