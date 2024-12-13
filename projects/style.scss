@@ -10,6 +10,17 @@ body {
     justify-content: center;
     align-items: center;
     position: relative; 
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+    
 }
 
 .custom-cursor-before {
@@ -23,7 +34,18 @@ body {
     z-index: -100;
     opacity: 1;
     pointer-events: none;
+    animation: fadeIn 1s ease-in-out;
 
+
+}
+
+#scene{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 80VH;
+    width: 50VW;
+    z-index: -1;
 }
 
 .main{
@@ -32,9 +54,11 @@ body {
     height: 90vh;
     border-radius: 5px;
     display: flex;
+    position: relative;
+    overflow: hidden;
 
     &__leftside{
-        width: 50%;
+        width: 60%;
 
         &-header{
             color: v.$light-gray;
@@ -54,10 +78,11 @@ body {
                     }
                 }
 
-                    &-title{
-                        font-size: 4rem;
-                        font-weight: 500;
-                    }
+                &-title{
+                    font-family: v.$font-title;
+                    font-size:5rem;
+                    font-weight: 500;
+                }
         
                     &-subtitle{
                         font-size: 1rem;
@@ -118,7 +143,7 @@ body {
     }
 
     &__rightside{
-        width: 50%;
+        width: 60%;
         display: flex;
         height: 100%;
         overflow-x: hidden;
@@ -159,41 +184,58 @@ body {
             padding-top: 1rem;
             padding-bottom: 1rem;
 
-            &-card{
-                @include m.card(tansparent, v.$light-gray, v.$small-radius, v.$padding);
+            &-card {
+                @include m.card(v.$gray, v.$light-gray, v.$small-radius, v.$padding);
+                backdrop-filter: blur(2px);
+                background: rgba(42, 42, 42, 0.1);
                 margin-bottom: 1rem;
+                height: 80rem;
                 border: 1px solid v.$gray;
-
-                & h2{
+                position: relative;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            
+                &:hover {
+                    transform: scale(1.02);
+                    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+                    z-index: 5;
+                }
+            
+                & h2 {
                     margin-top: 0.5rem;
                     font-size: 2rem;
                     font-weight: 500;
                     color: v.$light-gray;
+                    transition: color 0.3s ease;
                 }
-
-                & p{
+            
+                & p {
                     font-size: 1rem;
                     color: v.$light-gray;
                     margin-bottom: 0.5rem;
+                    line-height: 1.5;
+                    transition: opacity 0.3s ease;
                 }
-
-                & img{
-                    width: 180px;
-                    height: 100px;
+            
+                & img {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%) scale(0);
+                    width: 100%;
                     border-radius: v.$small-radius;
+                    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+                    transition: transform 0.5s ease, opacity 0.5s ease;
+                    opacity: 0;
+                    pointer-events: none;
                 }
-                &-button{
-                    @include m.button(v.$light-gray, v.$gray, v.$small-radius, v.$padding);
-                    margin-top: 1rem;
-                    font-weight: 500;
-                    cursor: pointer;
-                    transition: 0.5s;
-                    &:hover{
-                        background-color: v.$gray;
-                        color: v.$white;
-                    }
+            
+                &:hover img {
+                    transform: translate(-50%, -50%) scale(1);
+                    opacity: 1;
+                    pointer-events: auto;
                 }
             }
+            
         }
     }
 }
@@ -216,15 +258,7 @@ body {
             flex-direction: column;
             height: 100%;
             overflow: visible;  
-            & h1 {
-                position: static;
-                transform: rotate(0);
-                writing-mode: horizontal-tb;
-                text-align: center;
-                height: auto;
-                padding-bottom: 0;
-            }
-
+            
             &-container {
                 width: 100%;
                 height: auto; 
@@ -344,9 +378,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 5px;
     padding: 0.7rem 1rem;
     margin-left: 1rem;
+    margin-top: 17.5rem;
 
     &:hover {
         color: v.$black;

@@ -22,6 +22,12 @@
   font-weight: 300;
   font-style: italic;
 }
+@font-face {
+  font-family: "RightSans-WideMedium";
+  src: url("../font/PPRightSans-WideMedium.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
 * {
   margin: 0;
   padding: 0;
@@ -49,14 +55,23 @@ button {
 body {
   font-family: "NeueMontreal";
   background-image: url("../img/bg.png");
+  background-size: cover;
   margin: 5vh;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  background-size: cover;
+  animation: fadeIn 1s ease-in-out;
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .custom-cursor-before {
   position: fixed;
   top: 50%;
@@ -68,6 +83,16 @@ body {
   z-index: -100;
   opacity: 1;
   pointer-events: none;
+  animation: fadeIn 1s ease-in-out;
+}
+
+#scene {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 80VH;
+  width: 50VW;
+  z-index: -1;
 }
 
 .main {
@@ -76,9 +101,11 @@ body {
   height: 90vh;
   border-radius: 5px;
   display: flex;
+  position: relative;
+  overflow: hidden;
 }
 .main__leftside {
-  width: 50%;
+  width: 60%;
 }
 .main__leftside-header {
   color: #bbbbbb;
@@ -86,6 +113,7 @@ body {
 }
 .main__leftside-header-main {
   display: flex;
+  align-items: center;
 }
 .main__leftside-header-main-logo {
   margin-right: 20px;
@@ -95,7 +123,8 @@ body {
   height: 100px;
 }
 .main__leftside-header-main-title {
-  font-size: 4rem;
+  font-family: "RightSans-WideMedium";
+  font-size: 5rem;
   font-weight: 500;
 }
 .main__leftside-header-main-subtitle {
@@ -160,9 +189,15 @@ body {
 .main__rightside-form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   padding: 1rem;
-  width: 100%;
+}
+.main__rightside-form form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .main__rightside-form label {
   color: #bbbbbb;
@@ -199,29 +234,47 @@ body {
   background-color: #ffffff;
   color: #151515;
 }
-.main__rightside-form button {
+.main__rightside-form-btn {
+  display: inline-block;
+  position: relative;
+  width: 180px;
+  height: 60px;
+  background: transparent;
+  border: 1px solid #2d2d2d;
+  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #bbbbbb;
-  color: #2d2d2d;
-  border-radius: 5px;
-  padding: 1rem;
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
   cursor: pointer;
-  transition: 0.1s;
+  transition: 1s ease-in-out;
+  outline: none;
   margin: 1rem;
-  width: 100%;
-  font-weight: 500;
-  cursor: pointer;
-  transition: 0.5s;
 }
-.main__rightside-form button:hover {
-  background-color: #ffffff;
-  color: #151515;
+.main__rightside-form-btn:hover {
+  transition: 1s ease-in-out;
+  scale: 1.1;
 }
-.main__rightside-form button:hover {
-  background-color: #2d2d2d;
-  color: #ffffff;
+.main__rightside-form-btn:hover svg {
+  stroke-dashoffset: -480;
+}
+.main__rightside-form-btn svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  fill: none;
+  stroke: #fff;
+  stroke-dasharray: 150 480;
+  stroke-dashoffset: 150;
+  transition: 1s ease-in-out;
+}
+.main__rightside-form-btn span {
+  position: relative;
+  z-index: 1;
+  font-weight: 100;
+  animation: moveText 2s infinite ease-in-out;
 }
 
 @media screen and (max-width: 768px) {
@@ -313,9 +366,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 5px;
   padding: 0.7rem 1rem;
   margin-left: 1rem;
+  margin-top: 17.5rem;
 }
 .lightmodebtn:hover {
   color: #151515;
@@ -353,6 +406,18 @@ body {
 .lightmodebtn.lightmode {
   background-color: #e2c258;
   color: #151515;
+}
+
+@keyframes moveText {
+  0% {
+    text-shadow: 0 0 1px #bbbbbb, 0 0 2px #bbbbbb, 0 0 3px #bbbbbb;
+  }
+  50% {
+    text-shadow: 0 0 2px #bbbbbb, 0 0 4px #bbbbbb, 0 0 6px #bbbbbb;
+  }
+  100% {
+    text-shadow: 0 0 1px #bbbbbb, 0 0 2px #bbbbbb, 0 0 3px #bbbbbb;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

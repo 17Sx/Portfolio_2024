@@ -13,6 +13,8 @@ body {
     overflow: hidden; 
 }
 
+
+
 .custom-cursor-before {
     position: fixed;
     top: 50%;
@@ -24,7 +26,17 @@ body {
     z-index: -100;
     opacity: 1;
     pointer-events: none;
+    animation: fadeIn 1s ease-in-out;
+}
 
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+    
 }
 
 .main{
@@ -33,6 +45,8 @@ body {
     height: 90vh;
     border-radius: 5px;
     position: relative;
+    animation: fadeIn 1s ease-in-out;
+    overflow: hidden;
 
     &__header{
         color: v.$light-gray;
@@ -52,10 +66,11 @@ body {
                 }
             }
 
-                &-title{
-                    font-size: 4rem;
-                    font-weight: 500;
-                }
+            &-title{
+                font-family: v.$font-title;
+                font-size:5rem;
+                font-weight: 500;
+            }
     
                 &-subtitle{
                     font-size: 1rem;
@@ -115,21 +130,20 @@ body {
         }
 
     &__footer {
-        width: 16vw;
-        height: 15vh;
+        width: 20vw;
+        height: auto;
         display: flex;
         flex-direction: column;
         align-items: flex-end;
         justify-content: flex-end;
         text-align: end;
         color: v.$light-gray;
-        font-size: 1.5rem;
+        font-size: 2rem;
 
         position: absolute;  
         bottom: 0;  
         right: 0; 
         padding: 1rem; 
-
 
         &-link {
             cursor: pointer;
@@ -142,7 +156,15 @@ body {
         }
     }
 
+}
 
+#scene{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 80VH;
+    width: 50VW;
+    z-index: -1;
 }
 
 @media screen and (max-width: 768px){
@@ -236,9 +258,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 5px;
     padding: 0.7rem 1rem;
     margin-left: 1rem;
+    margin-top: 17.5rem;
+
 
     &:hover {
         color: v.$black;

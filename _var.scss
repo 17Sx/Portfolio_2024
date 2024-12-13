@@ -40,9 +40,20 @@ $transparent: #ffffff00;
     font-style: italic;
 }
 
+@font-face {
+    font-family: 'RightSans-WideMedium';
+    src: url('../font/PPRightSans-WideMedium.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+$font-title: 'RightSans-WideMedium';
 $font: 'NeueMontreal';
 $font-weight-bold: bold;
 $font-weight-light: 300;
+
+
 
 //radius
 

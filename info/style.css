@@ -22,6 +22,12 @@
   font-weight: 300;
   font-style: italic;
 }
+@font-face {
+  font-family: "RightSans-WideMedium";
+  src: url("../font/PPRightSans-WideMedium.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
 * {
   margin: 0;
   padding: 0;
@@ -49,14 +55,29 @@ button {
 body {
   font-family: "NeueMontreal";
   background-image: url("../img/bg.png");
+  animation: fadeIn 1s ease-in-out;
   margin: 5vh;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  overflow: hidden;
-  background-size: cover;
+}
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+#scene {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 80VH;
+  width: 50VW;
+  z-index: -1;
 }
 
 .custom-cursor-before {
@@ -70,6 +91,7 @@ body {
   z-index: -100;
   opacity: 1;
   pointer-events: none;
+  animation: fadeIn 1s ease-in-out;
 }
 
 .main {
@@ -78,26 +100,39 @@ body {
   height: 90vh;
   border-radius: 5px;
   display: flex;
+  position: relative;
+  overflow: hidden;
 }
 .main__leftside {
   width: 50%;
 }
 .main__leftside-header {
+  display: flex;
+  align-items: center;
   color: #bbbbbb;
   padding: 1rem;
+  width: 20vw;
 }
 .main__leftside-header-main {
   display: flex;
 }
 .main__leftside-header-main-logo {
   margin-right: 20px;
+  display: flex;
+  align-items: center;
 }
 .main__leftside-header-main-logo img {
   width: 100px;
   height: 100px;
 }
+.main__leftside-header-main-text {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+}
 .main__leftside-header-main-title {
-  font-size: 4rem;
+  font-family: "RightSans-WideMedium";
+  font-size: 5rem;
   font-weight: 500;
 }
 .main__leftside-header-main-subtitle {
@@ -173,10 +208,11 @@ body {
   flex-direction: column;
   align-items: flex-end;
   color: #bbbbbb;
-  width: 90%;
+  width: 100%;
   overflow: hidden;
 }
 .main__rightside-container-text {
+  font-size: 1.2rem;
   font-weight: 300;
   padding: 1rem;
   text-align: end;
@@ -191,6 +227,7 @@ body {
   display: flex;
   flex-direction: flex-end;
   height: 90%;
+  width: 100%;
 }
 .main__rightside-container-skills h3 {
   font-size: 1.5rem;
@@ -248,28 +285,46 @@ body {
 .main__rightside-container-skills-pl-logo i {
   margin-left: 1vw;
 }
-.main__rightside a {
+.main__rightside-btn {
+  display: inline-block;
+  position: relative;
+  width: 180px;
+  height: 60px;
+  background: transparent;
+  border: 1px solid #2d2d2d;
+  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #bbbbbb;
-  color: #2d2d2d;
-  border-radius: 5px;
-  padding: 1rem;
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
   cursor: pointer;
-  transition: 0.1s;
-  margin: 1rem 1rem 1rem 0;
-  font-weight: 500;
-  cursor: pointer;
-  transition: 0.5s;
+  transition: 1s ease-in-out;
+  outline: none;
 }
-.main__rightside a:hover {
-  background-color: #ffffff;
-  color: #151515;
+.main__rightside-btn:hover {
+  transition: 1s ease-in-out;
+  scale: 1.1;
 }
-.main__rightside a:hover {
-  background-color: #2d2d2d;
-  color: #ffffff;
+.main__rightside-btn:hover svg {
+  stroke-dashoffset: -480;
+}
+.main__rightside-btn svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  fill: none;
+  stroke: #fff;
+  stroke-dasharray: 150 480;
+  stroke-dashoffset: 150;
+  transition: 1s ease-in-out;
+}
+.main__rightside-btn span {
+  position: relative;
+  z-index: 1;
+  font-weight: 100;
+  animation: moveText 2s infinite ease-in-out;
 }
 
 .ff {
@@ -294,7 +349,7 @@ body {
     font-size: 2rem;
   }
   .main__rightside {
-    width: 100%;
+    width: 50vw;
   }
   .main__rightside-container-skills {
     flex-direction: column;
@@ -377,8 +432,8 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-  padding: 0.7rem 1rem;
   margin-left: 1rem;
+  margin-top: 17.5rem;
 }
 .lightmodebtn:hover {
   color: #151515;
@@ -416,6 +471,18 @@ body {
 .lightmodebtn.lightmode {
   background-color: #e2c258;
   color: #151515;
+}
+
+@keyframes moveText {
+  0% {
+    text-shadow: 0 0 1px #bbbbbb, 0 0 2px #bbbbbb, 0 0 3px #bbbbbb;
+  }
+  50% {
+    text-shadow: 0 0 2px #bbbbbb, 0 0 4px #bbbbbb, 0 0 6px #bbbbbb;
+  }
+  100% {
+    text-shadow: 0 0 1px #bbbbbb, 0 0 2px #bbbbbb, 0 0 3px #bbbbbb;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

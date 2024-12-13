@@ -11,6 +11,17 @@ body {
     justify-content: center;
     align-items: center;
     position: relative; 
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+    
 }
 
 .custom-cursor-before {
@@ -24,8 +35,19 @@ body {
     z-index: -100;
     opacity: 1;
     pointer-events: none;
+    animation: fadeIn 1s ease-in-out;
 
 }
+
+#scene{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 80VH;
+    width: 50VW;
+    z-index: -1;
+}
+
 
 .main{
     border: 1px solid v.$gray;
@@ -33,9 +55,12 @@ body {
     height: 90vh;
     border-radius: 5px;
     display: flex;
+    position: relative;
+
+    overflow: hidden;
 
     &__leftside{
-        width: 50%;
+        width: 60%;
 
         &-header{
             color: v.$light-gray;
@@ -44,6 +69,7 @@ body {
             &-main{
 
                 display: flex;
+                align-items: center;
 
                 &-logo{
 
@@ -56,7 +82,8 @@ body {
                 }
 
                     &-title{
-                        font-size: 4rem;
+                        font-family: v.$font-title;
+                        font-size:5rem;
                         font-weight: 500;
                     }
         
@@ -138,9 +165,16 @@ body {
         &-form{
             display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: center;
             padding: 1rem;
-            width: 100%;
+
+            & form{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
 
             & label{
                 color: v.$light-gray;
@@ -184,18 +218,54 @@ body {
                 }
             }
 
-            & button{
-                @include m.button(v.$light-gray, v.$gray, v.$small-radius, v.$padding);
-                margin: 1rem;
-                width: 100%;
-                font-weight: 500;
+            &-btn{
+                display: inline-block;
+                position: relative;
+                width: 180px;
+                height: 60px;
+                background: transparent;
+                border: 1px solid v.$gray;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-decoration: none;
+                font-size: 18px;
+                color: white;
                 cursor: pointer;
-                transition: 0.5s;
-                &:hover{
-                    background-color: v.$gray;
-                    color: v.$white;
+                transition: 1s ease-in-out  ;
+                outline: none;
+                margin: 1rem;
+
+                
+            
+                    &:hover {
+                    transition: 1s ease-in-out;
+                    scale: 1.1;
+            
+                    svg {
+                        stroke-dashoffset: -480;
+                    }
+                    }
+            
+                    svg {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    fill: none;
+                    stroke: #fff;
+                    stroke-dasharray: 150 480;
+                    stroke-dashoffset: 150;
+                    transition: 1s ease-in-out;
+                    }
+            
+                    span {
+                    position: relative;
+                    z-index: 1;
+                    font-weight: 100;
+                    animation: moveText 2s infinite ease-in-out;
+                    }
                 }
-        }
 
     }
 
@@ -324,9 +394,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 5px;
     padding: 0.7rem 1rem;
     margin-left: 1rem;
+    margin-top: 17.5rem;
 
     &:hover {
         color: v.$black;
@@ -369,3 +439,16 @@ body {
     background-color: v.$yellow;
     color: v.$black;
 }
+
+
+@keyframes moveText {
+    0% {
+        text-shadow: 0 0 1px v.$light-gray, 0 0 2px v.$light-gray, 0 0 3px v.$light-gray;
+    }
+    50% {
+        text-shadow: 0 0 2px v.$light-gray, 0 0 4px v.$light-gray, 0 0 6px v.$light-gray;
+    }
+    100% {
+        text-shadow: 0 0 1px v.$light-gray, 0 0 2px v.$light-gray, 0 0 3px v.$light-gray;
+    }
+    }
