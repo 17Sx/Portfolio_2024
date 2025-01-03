@@ -209,7 +209,6 @@ body {
   align-items: flex-end;
   color: #bbbbbb;
   width: 100%;
-  overflow: hidden;
 }
 .main__rightside-container-text {
   font-size: 1.2rem;
