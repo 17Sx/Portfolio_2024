@@ -60,6 +60,7 @@ body {
     overflow: hidden;
 
     &__leftside{
+        z-index: -50;
         width: 60%;
 
         &-header{
@@ -219,6 +220,7 @@ body {
             }
 
             &-btn{
+                z-index: 100;
                 display: inline-block;
                 position: relative;
                 width: 180px;
@@ -240,16 +242,22 @@ body {
                 
             
                     &:hover {
+                        z-index: 100;
+
                     transition: 1s ease-in-out;
                     scale: 1.1;
             
                     svg {
+                        z-index: 100;
+
                         stroke-dashoffset: -480;
                     }
                     }
             
                     svg {
                     position: absolute;
+                    z-index: 100;
+
                     top: 0;
                     left: 0;
                     fill: none;
@@ -383,8 +391,11 @@ body {
 
 
 .lightmodebtn {
+    position: absolute; 
+    bottom: 1rem; 
+    left: 1rem; 
     background-color: transparent;
-    color: v.$light-gray;  
+    color: v.$light-gray;
     border: 1px solid v.$gray;
     padding: 0.5rem 1rem;
     font-size: 1.2rem;
@@ -395,8 +406,6 @@ body {
     justify-content: center;
     align-items: center;
     padding: 0.7rem 1rem;
-    margin-left: 1rem;
-    margin-top: 17.5rem;
 
     &:hover {
         color: v.$black;

@@ -355,6 +355,9 @@ body {
 }
 
 .lightmodebtn {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
   background-color: transparent;
   color: #bbbbbb;
   border: 1px solid #2d2d2d;
@@ -367,8 +370,6 @@ body {
   justify-content: center;
   align-items: center;
   padding: 0.7rem 1rem;
-  margin-left: 1rem;
-  margin-top: 17.5rem;
 }
 .lightmodebtn:hover {
   color: #151515;

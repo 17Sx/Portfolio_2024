@@ -172,7 +172,6 @@ body {
   width: 60%;
   display: flex;
   height: 100%;
-  overflow-x: hidden;
 }
 .main__rightside::-webkit-scrollbar {
   width: 10px;
@@ -185,17 +184,6 @@ body {
 }
 .main__rightside::-webkit-scrollbar-track {
   background-color: transparent;
-}
-.main__rightside h1 {
-  padding-bottom: 1rem;
-  text-align: end;
-  color: #bbbbbb;
-  font-size: 3rem;
-  font-weight: 500;
-  height: 50%;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  position: fixed;
 }
 .main__rightside-container {
   display: flex;
@@ -223,6 +211,7 @@ body {
   border: 1px solid #2d2d2d;
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
 }
 .main__rightside-container-card:hover {
   transform: scale(1.02);
@@ -361,6 +350,9 @@ body {
 }
 
 .lightmodebtn {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
   background-color: transparent;
   color: #bbbbbb;
   border: 1px solid #2d2d2d;
@@ -373,8 +365,6 @@ body {
   justify-content: center;
   align-items: center;
   padding: 0.7rem 1rem;
-  margin-left: 1rem;
-  margin-top: 17.5rem;
 }
 .lightmodebtn:hover {
   color: #151515;

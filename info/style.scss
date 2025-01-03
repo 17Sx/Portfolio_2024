@@ -57,7 +57,7 @@ body {
     position: relative;
     overflow: hidden;
 
-    &__leftside{
+    &__leftside{    
         width: 50%;
         &-header{
             display: flex;
@@ -461,8 +461,11 @@ body {
 
 
 .lightmodebtn {
+    position: absolute; 
+    bottom: 1rem; 
+    left: 1rem; 
     background-color: transparent;
-    color: v.$light-gray;  
+    color: v.$light-gray;
     border: 1px solid v.$gray;
     padding: 0.5rem 1rem;
     font-size: 1.2rem;
@@ -472,9 +475,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 1rem;
-    margin-top: 17.5rem;
-
+    padding: 0.7rem 1rem;
 
     &:hover {
         color: v.$black;
