@@ -55,6 +55,7 @@ button {
 body {
   font-family: "NeueMontreal";
   background-image: url("../img/bg.png");
+  background-size: cover;
   animation: fadeIn 1s ease-in-out;
   margin: 5vh;
   display: flex;
